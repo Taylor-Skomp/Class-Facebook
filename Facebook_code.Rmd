@@ -1,0 +1,23 @@
+---
+title: "Facebook"
+author: "Taylor Skomp"
+date: "2024-06-14"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+setwd("C:/MSDS/Datasets")
+```
+
+```{r}
+computer_info<-read.csv("MSDS-Orientation-Computer-Survey.csv")
+computer_info_1<-rename(computer_info,CPU_core_number=CPU.Number.of.Cores..int.)
+```
+
+
+
+```{r}
+ggplot(computer_info_1,aes(x=CPU_core_number))+geom_histogram(bins=7,color="black",fill="blue")+labs(title="Distribution of CPU cores of incoming MSDS students (2021-2024)",x="CPU Cores",y="Count")+theme(plot.title=element_text(size=14))
+```
+
